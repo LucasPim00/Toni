@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Obra Fácil — serviços de obras civis com qualidade e comprometimento" />
+  <meta name="author" content="Obra Fácil" />
+  <title>Obra Fácil — Serviços de Obras</title>
+
+  <!-- favicon (opcional) -->
+  <link rel="icon" href="imagens/favicon.ico" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a class="logo-link" href="https://www.obrafacil.com" aria-label="Ir para a página inicial">
+        <img src="imagens/OFN.jpg" alt="Logotipo Obra Fácil" class="logo" />
+      </a>
+
+      <nav class="main-nav" role="navigation" aria-label="Menu principal">
+        <ul id="nav-list" class="nav-list">
+          <li><a href="#home">Início</a></li>
+          <li><a href="#services">Serviços</a></li>
+          <li><a href="#about">Sobre nós</a></li>
+          <li><a href="#contact">Contato</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-contacts">
+        <a class="phone" href="tel:+5541996905020"> (41) 99690-5020</a>
+        <a class="phone" href="tel:+5547996218099"> / (47) 99621-8099</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="hero-section">
+  <div class="hero-left">
+    <h1>Transformando equipamentos com excelência</h1>
+    <p class="hero-sub">Soluções completas em gestão de obras, com foco em qualidade, agilidade e transparência. Realizamos desde pequenas reformas até projetos completos, sempre garantindo o melhor resultado.</p>
+    <a class="cta-button" href="#contact">Solicite um Orçamento</a>
+  </div>
+
+  <div class="hero-right">
+    <div id="carousel" class="carousel" aria-roledescription="carousel" aria-label="Galeria de obras">
+      <div class="carousel-track" id="carousel-track">
+        <!-- imagens serão adicionadas dinamicamente pelo scripts.js -->
+      </div>
+
+      <!-- controles visíveis (opcional) -->
+      <button class="carousel-btn prev" id="carousel-prev" aria-label="Imagem anterior">‹</button>
+      <button class="carousel-btn next" id="carousel-next" aria-label="Próxima imagem">›</button>
+
+      <!-- indicadores -->
+      <div class="carousel-dots" id="carousel-dots" aria-hidden="false"></div>
+    </div>
+  </div>
+</section>
+
+    <section id="services" class="services-section">
+      <h2>Serviços Oferecidos</h2>
+      <div class="services-container">
+        <article class="service-card construcao-card" aria-labelledby="s1">
+          <div class="service-bg"></div>
+
+          <div class="service-content">
+            <h3 id="s1">Equipamentos</h3>
+            <p>Consulte todos os nossos equipamentos voltados a mancais e engrenaens em geral.</p>
+          </div>
+
+          <a href="#" class="service-btn">Ver mais</a>
+        </article>
+
+        <article class="service-card reformas-card" aria-labelledby="s2">
+          <div class="service-bg"></div>
+
+          <div class="service-content">
+            <h3 id="s2">Reformas</h3>
+            <p>Reformas rápidas e eficientes para residências e empresas.</p>
+          </div>
+
+          <a href="#" class="service-btn">Ver mais</a>
+        </article>
+
+
+        <article class="service-card projetos-card" aria-labelledby="s3">
+          <div class="service-bg"></div>
+
+          <div class="service-content">
+            <h3 id="s3">Locação de máquinas</h3>
+            <p>Projetos arquitetônicos e estruturais feitos sob medida.</p>
+          </div>
+
+          <a href="#" class="service-btn">Ver mais</a>
+        </article>
+        </div> 
+    </section> 
+
+    <section id="about" class="about-section">
+      <h2>Sobre nós</h2>
+      <p>Somos uma empresa de gestão de obras, voltada a administração, gestão de documentos, facilitação de mão de obra, também oferecemos serviços e equipamentos voltado a representação em campo. Tornando a área de atuação, serviços e área de representação, com diversos produtos máquinas e equipamentos para a manufatura em solo. Sede em Colombo-PR</p>
+    </section>
+
+    <section id="contact" class="contact-section">
+  <div class="contact-inner">
+    <div class="contact-left">
+      <h2>Entre em Contato</h2>
+      <p>Tem um projeto? Conte para nós — respondemos rapidamente com orçamento e orientação técnica.</p>
+
+      <div class="contact-cards">
+        <div class="contact-card">
+          <strong>Telefone</strong>
+          <a href="tel:+5541996905020">(41) 99690-5020</a><br/>
+          <a href="tel:+5547996218099">(47) 99621-8099</a>
+        </div>
+
+        <div class="contact-card">
+          <strong>E-mail</strong>
+          <a href="mailto:comercial@of.com">comercial@of.com</a>
+        </div>
+
+        <div class="contact-card">
+          <strong>WhatsApp</strong>
+          <a href="https://wa.me/5516993259687" target="_blank" rel="noreferrer">Abrir conversa</a>
+        </div>
+      </div>
+
+      <!-- MAPA (descomente se quiser mostrar) -->
+      <!--
+      <div class="map-wrap" aria-hidden="false">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!...INSIRA_CODIGO_AQUI..."
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          title="Localização Obra Fácil"></iframe>
+      </div>
+      -->
+    </div>
+
+    <div class="contact-right" aria-labelledby="contact-form-title">
+      <h3 id="contact-form-title" class="sr-only">Formulário de Contato</h3>
+
+      <form id="contact-form" class="contact-form" aria-label="Formulário de contato">
+        <label for="name">Nome</label>
+        <input type="text" id="name" name="name" placeholder="Seu nome" required autocomplete="name" />
+
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" placeholder="seu@exemplo.com" required autocomplete="email" />
+
+        <label for="phone">Telefone (opcional)</label>
+        <input type="tel" id="phone" name="phone" placeholder="(41) 9xxxx-xxxx" autocomplete="tel" />
+
+        <label for="message">Mensagem</label>
+        <textarea id="message" name="message" placeholder="Descreva seu projeto" rows="5" required></textarea>
+
+        <div class="form-actions">
+          <button type="submit" class="cta-button">Enviar</button>
+          <button type="button" id="mailto-btn" class="secondary-btn">Enviar por e-mail</button>
+        </div>
+
+        <p id="form-message" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+  </main>
+
+  <a class="whatsapp-fix" href="https://wa.me/5516993259687" target="_blank" rel="noreferrer" aria-label="Abrir WhatsApp">
+    <img src="imagens/whats.jpg" alt="WhatsApp" />
+  </a>
+
+  <footer class="site-footer" role="contentinfo">
+    <div>
+      <p>&copy; 2025 Obra Fácil — <a href="https://www.obrafacil.com">www.obrafacil.com</a></p>
+      <p>Contato comercial: <a href="mailto:comercial@of.com">comercial@of.com</a> | CNPJ: 55.189.031/0001-24</p>
+    </div>
+  </footer>
+
+  <script src="scripts.js"></script>
+</body>
+</html>

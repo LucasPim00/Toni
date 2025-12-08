@@ -1,0 +1,447 @@
+/* Reset */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* Tipografia e cores */
+:root{
+  --bg:#2c2c2c;
+  --surface:#333;
+  --muted:#444;
+  --accent:#f3bc23;
+  --text:#ffffff;
+  --card:#555;
+}
+
+html,body{ height:100%; font-family: Inter, Arial, sans-serif; background:var(--bg); color:var(--text); -webkit-font-smoothing:antialiased; }
+
+/* Header */
+.site-header{ background:#000; position:sticky; top:0; z-index:60; }
+
+.header-inner{
+  max-width:1500px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns: 1fr auto 1fr; 
+  align-items:center;
+  padding:0.2rem 1rem;
+}
+
+/* COLUNA 1 */
+.logo-link{
+  justify-self:start;
+}
+.logo{
+  width:120px;
+  height:auto;
+  object-fit:contain;
+}
+
+/* COLUNA 2 */
+.main-nav{
+  justify-self:center;
+}
+.nav-list{
+  color:var(--accent);
+  display:flex;
+  list-style:none;
+  justify-content:center;
+  gap:2rem;
+}
+
+/* COLUNA 3 */
+.header-contacts{
+  justify-self:end;
+  color:var(--accent);
+}
+
+/* Força cor amarela para todos os links do header (início/serviços/sobre/contato) */
+.nav-list a,
+.header-contacts a {
+  color: var(--accent);        /* sua variável amarelo */
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* Garante que visited/hover/active também fiquem amarelos */
+.nav-list a:link,
+.nav-list a:visited,
+.nav-list a:hover,
+.nav-list a:active,
+.header-contacts a:link,
+.header-contacts a:visited,
+.header-contacts a:hover,
+.header-contacts a:active {
+  color: var(--accent);
+}
+
+/* Hover visual levemente diferente */
+.nav-list a:hover,
+.header-contacts a:hover {
+  color: #ffd75a;     /* amarelo claro no hover */
+  text-decoration: underline; /* opcional, deixa mais claro que é clicável */
+}
+
+/* Caso algo ainda esteja sobrescrevendo, use a regra com maior especificidade */
+.header-inner .main-nav .nav-list a,
+.header-inner .header-contacts a {
+  color: var(--accent);
+}
+
+
+/* Hero */
+.hero-section{ display:flex; gap:2rem; align-items:center; justify-content:space-between; padding:3rem 1rem; max-width:1100px; margin:0 auto; }
+.hero-content{ flex:1; }
+.hero-content h1{ font-size:2.2rem; margin-bottom:0.6rem; }
+.hero-content p{ font-size:1.1rem; margin-bottom:1rem; color:#ddd; }
+.hero-image img{ max-width:420px; width:100%; border-radius:10px; }
+
+/* CTA */
+.cta-button{ display:inline-block; background:var(--accent); color:#000; padding:12px 18px; border-radius:8px; font-weight:700; text-decoration:none; }
+.cta-button:hover{ transform:translateY(-3px); }
+
+/* Sections */
+.services-section, .about-section, .contact-section{ padding:2.5rem 1rem; background:var(--surface); margin-top:1rem; }
+.services-container{ display:flex; gap:1rem; margin-top:1rem; justify-content:space-between; }
+.service-card{ background:var(--card); padding:1.2rem; border-radius:8px; width:32%; box-shadow:0 6px 12px rgba(0,0,0,0.3); }
+
+/* Form */
+.contact-form{ max-width:800px; margin:0 auto; display:flex; flex-direction:column; gap:0.6rem; }
+.contact-form label{ font-size:0.9rem; }
+.contact-form input, .contact-form textarea{ padding:10px; border-radius:6px; border:1px solid #333; background:#222; color:var(--text); }
+.form-actions{ display:flex; gap:0.6rem; margin-top:0.6rem; align-items:center; }
+.secondary-btn{ padding:10px 14px; border-radius:6px; background:transparent; border:1px solid #666; color:#fff; cursor:pointer; }
+
+/* Footer */
+.site-footer{ margin-top:1.5rem; padding:1rem; background:#111; text-align:center; font-size:0.95rem; }
+
+/* WhatsApp fix */
+.whatsapp-fix{ position:fixed; right:18px; bottom:18px; z-index:80; }
+.whatsapp-fix img{ width:56px; height:56px; border-radius:50%; }
+
+/* Responsividade */
+@media (max-width:900px){
+  .hero-section{ flex-direction:column-reverse; text-align:center; }
+  .services-container{ flex-direction:column; }
+  .service-card{ width:100%; }
+  .nav-list{ display:none; position:absolute; right:0; background:#111; padding:1rem; border-radius:8px; top:calc(100% + 8px); }
+  .nav-toggle{ display:inline-block; }
+  .header-contacts{ display:none; }
+}
+
+/* --- HERO: duas colunas (texto à esquerda, carrossel à direita) --- */
+.hero-section{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:2rem;
+  align-items:center;
+  padding:3rem 1rem;
+  max-width:1100px;
+  margin:0 auto;
+}
+
+/* Ajustes visuais do lado esquerdo já existentes */
+.hero-left h1{ font-size:2.4rem; margin-bottom:0.5rem; }
+.hero-left .hero-sub{ color:#ddd; margin-bottom:1rem; font-size:1.05rem; }
+
+/* --- CAROUSEL --- */
+.carousel{
+  position:relative;
+  width:100%;
+  height:300px;                /* ajustável */
+  background:#2f2f2f;          /* fallback */
+  border-radius:10px;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+}
+
+.carousel-track{
+  display:flex;
+  height:100%;
+  transition:transform 0.6s ease;
+  will-change: transform;
+}
+
+/* cada slide */
+.carousel-slide{
+  min-width:100%;
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-shrink:0;
+  position:relative;
+}
+
+.carousel-slide img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+/* botões */
+.carousel-btn{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:rgba(0,0,0,0.45);
+  color:var(--accent);
+  border: none;
+  font-size:1.8rem;
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:30;
+}
+.carousel-btn.prev{ left:12px; }
+.carousel-btn.next{ right:12px; }
+
+/* indicadores (dots) */
+.carousel-dots{
+  position:absolute;
+  bottom:10px;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  gap:8px;
+  z-index:30;
+}
+.carousel-dot{
+  width:10px;
+  height:10px;
+  background:rgba(255,255,255,0.25);
+  border-radius:50%;
+  cursor:pointer;
+}
+.carousel-dot.active{
+  background:var(--accent);
+}
+
+/* RESPONSIVIDADE: no mobile, empilha e deixa carrossel acima do texto */
+@media (max-width:900px){
+  .hero-section{ grid-template-columns: 1fr; gap:1.2rem; text-align:center; }
+  .hero-left { order:2; }
+  .hero-right { order:1; }
+  .carousel{ height:220px; }
+  .carousel-btn{ display:none; } /* optional: esconder botões no mobile */
+}
+
+/* ===== CARD ESPECIAL: CONSTRUÇÃO ===== */
+.construcao-card {
+  position: relative;
+  overflow: hidden;
+  height: 220px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border-radius: 10px;
+}
+
+/* imagem de fundo */
+.construcao-card .service-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('imagens/construcao.jpg'); /* coloque o nome da imagem aqui */
+  background-size: cover;
+  background-position: center;
+  filter: brightness(40%);  /* deixa ~60% escura, equivalente a 60% transparente */
+  z-index: 1;
+}
+
+/* conteúdo em cima da imagem */
+.construcao-card .service-content {
+  position: relative;
+  z-index: 2;
+  padding: 1rem 1rem 0.5rem;
+  color: #fff;
+}
+
+.construcao-card .service-content h3 {
+  margin-bottom: 4px;
+}
+
+.construcao-card .service-content p {
+  font-size: 0.9rem;
+  line-height: 1.3;
+}
+
+/* botão "ver mais" */
+.construcao-card .service-btn {
+  position: relative;
+  z-index: 2;
+  margin: 0.5rem 1rem 1rem;
+  align-self: flex-start;
+  background: var(--accent);
+  color: #000;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.construcao-card .service-btn:hover {
+  transform: scale(1.05);
+}
+
+/* ===== CARD ESPECIAL: REFORMAS ===== */
+.reformas-card {
+  position: relative;
+  overflow: hidden;
+  height: 220px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border-radius: 10px;
+}
+
+.reformas-card .service-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('imagens/reformas.jpg'); /* ajuste o nome da imagem */
+  background-size: cover;
+  background-position: center;
+  filter: brightness(40%);
+  z-index: 1;
+}
+
+.reformas-card .service-content {
+  position: relative;
+  z-index: 2;
+  padding: 1rem 1rem 0.5rem;
+  color: #fff;
+}
+
+.reformas-card .service-btn {
+  position: relative;
+  z-index: 2;
+  margin: 0.5rem 1rem 1rem;
+  background: var(--accent);
+  color: #000;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.reformas-card .service-btn:hover {
+  transform: scale(1.05);
+}
+
+
+/* ===== CARD ESPECIAL: PROJETOS ===== */
+.projetos-card {
+  position: relative;
+  overflow: hidden;
+  height: 220px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border-radius: 10px;
+}
+
+.projetos-card .service-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('imagens/projetos.jpg'); /* ajuste para sua imagem */
+  background-size: cover;
+  background-position: center;
+  filter: brightness(40%);
+  z-index: 1;
+}
+
+.projetos-card .service-content {
+  position: relative;
+  z-index: 2;
+  padding: 1rem 1rem 0.5rem;
+  color: #fff;
+}
+
+.projetos-card .service-btn {
+  position: relative;
+  z-index: 2;
+  margin: 0.5rem 1rem 1rem;
+  background: var(--accent);
+  color: #000;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.projetos-card .service-btn:hover {
+  transform: scale(1.05);
+}
+
+/* Forçar todos os botões dos cards a terem o mesmo tamanho do primeiro */
+.service-btn {
+  width: auto !important;     /* remove largura esticada */
+  display: inline-block !important;
+  max-width: fit-content;
+}
+
+/* ===== Contact section improvements ===== */
+.contact-section{ padding:2.5rem 1rem; background:var(--surface); margin-top:1.5rem; }
+.contact-inner{ max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1fr 420px; gap:2rem; align-items:start; }
+
+/* left (info + cards + map) */
+.contact-left h2{ font-size:1.6rem; margin-bottom:0.6rem; color:var(--text); }
+.contact-left p{ color:#ddd; margin-bottom:1rem; }
+
+/* small info cards */
+.contact-cards{ display:flex; gap:0.8rem; flex-wrap:wrap; margin-bottom:1rem; }
+.contact-card{ background:var(--card); padding:0.8rem; border-radius:8px; color:#fff; min-width:170px; box-shadow:0 6px 12px rgba(0,0,0,0.3); }
+.contact-card a{ color:var(--accent); text-decoration:none; display:inline-block; margin-top:6px; }
+
+/* map */
+.map-wrap{ margin-top:1rem; border-radius:8px; overflow:hidden; box-shadow:0 6px 12px rgba(0,0,0,0.3); }
+.map-wrap iframe{ width:100%; height:220px; border:0; display:block; }
+
+/* right (form) */
+.contact-right{ background:transparent; }
+.contact-form{ background:var(--card); padding:1rem; border-radius:8px; box-shadow:0 6px 12px rgba(0,0,0,0.35); display:flex; flex-direction:column; gap:0.6rem; }
+.contact-form label{ font-size:0.9rem; color:#fff; }
+.contact-form input, .contact-form textarea{ padding:10px; border-radius:6px; border:1px solid #333; background:#222; color:var(--text); outline:none; }
+.contact-form input:focus, .contact-form textarea:focus{ box-shadow:0 0 0 3px rgba(243,188,35,0.12); border-color:var(--accent); }
+
+/* message area */
+#form-message{ margin-top:6px; font-weight:600; }
+
+/* small helper class for screenreader-only heading */
+.sr-only{ position:absolute!important; height:1px; width:1px; overflow:hidden; clip:rect(1px,1px,1px,1px); white-space:nowrap; }
+
+/* responsivity */
+@media (max-width:900px){
+  .contact-inner{ grid-template-columns:1fr; }
+  .contact-right{ order:2; }
+  .contact-left{ order:1; }
+  .map-wrap iframe{ height:180px; }
+}
+
+.contact-cards{
+  display: grid;
+  grid-template-columns: 1fr; /* apenas uma coluna */
+  gap: 0.8rem;
+  width: 50%;
+}
