@@ -100,7 +100,9 @@ html,body{ height:100%; font-family: Inter, Arial, sans-serif; background:var(--
 
 /* Sections */
 .services-section, .about-section, .contact-section{ padding:2.5rem 1rem; background:var(--surface); margin-top:1rem; }
+
 .services-container{ display:flex; gap:1rem; margin-top:1rem; justify-content:space-between; }
+
 .service-card{ background:var(--card); padding:1.2rem; border-radius:8px; width:32%; box-shadow:0 6px 12px rgba(0,0,0,0.3); }
 
 /* Form */
@@ -444,4 +446,115 @@ html,body{ height:100%; font-family: Inter, Arial, sans-serif; background:var(--
   grid-template-columns: 1fr; /* apenas uma coluna */
   gap: 0.8rem;
   width: 50%;
+}
+
+/* ===== CARD ESPECIAL: VENDA E REMANUFATURA ===== */
+.venda-card {
+  position: relative;
+  overflow: hidden;
+  height: 220px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border-radius: 10px;
+}
+
+.venda-card .service-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('imagens/venda.jpg'); /* coloque sua imagem */
+  background-size: cover;
+  background-position: center;
+  filter: brightness(40%);
+  z-index: 1;
+}
+
+.venda-card .service-content {
+  position: relative;
+  z-index: 2;
+  padding: 1rem 1rem 0.5rem;
+  color: #fff;
+}
+
+.venda-card .service-btn {
+  position: relative;
+  z-index: 2;
+  margin: 0.5rem 1rem 1rem;
+  background: var(--accent);
+  color: #000;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.venda-card .service-btn:hover {
+  transform: scale(1.05);
+}
+
+/* Deixar texto no topo do card */
+.service-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* agora o topo é prioridade */
+}
+
+/* conteúdo do topo */
+.top-content {
+  padding: 1rem;
+  position: relative;
+  z-index: 2;
+  color: #fff;
+}
+
+/* área do botão permanece embaixo */
+.bottom-area {
+  margin-top: auto;        /* empurra o botão para o final */
+  padding: 0 1rem 1rem;    /* deixa no mesmo lugar visual */
+  position: relative;
+  z-index: 2;
+}
+/* Configurar card para permitir posição absoluta */
+.service-card {
+  position: relative;
+  padding: 0;
+}
+
+/* Conteúdo no topo */
+.top-content {
+  padding: 1rem;
+  position: relative;
+  z-index: 2;
+  color: #fff;
+}
+
+/* Botão fixado no canto inferior esquerdo */
+.bottom-area {
+  position: absolute;
+  left: 1px;
+  bottom: -10px;
+  z-index: 3;
+}
+
+/* Garantir que o botão fique padrão */
+.service-btn {
+  display: inline-block !important;
+  width: auto !important;
+  background: var(--accent);
+  color: #000;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.service-btn:hover {
+  transform: scale(1.05);
 }
