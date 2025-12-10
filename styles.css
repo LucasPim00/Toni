@@ -30,7 +30,7 @@ html,body{ height:100%; font-family: Inter, Arial, sans-serif; background:var(--
   justify-self:start;
 }
 .logo{
-  width:120px;
+  width:150px;
   height:auto;
   object-fit:contain;
 }
