@@ -15,7 +15,7 @@
 <body>
   <header class="site-header" role="banner">
     <div class="header-inner">
-      <a class="logo-link" href="https://www.obrafacil.com" aria-label="Ir para a página inicial">
+      <a class="logo-link" aria-label="Ir para a página inicial">
         <img src="imagens/OFN.jpg" alt="Logotipo Obra Fácil" class="logo" />
       </a>
 
@@ -30,7 +30,6 @@
 
       <div class="header-contacts">
         <a class="phone" href="tel:+5541996905020"> (41) 99690-5020</a>
-        <a class="phone" href="tel:+5547996218099"> / (47) 99621-8099</a>
       </div>
     </div>
   </header>
@@ -70,7 +69,8 @@
             <p>Locação de máquinas e equipamentos para melhor atender a necessidade da sua obra</p>
           </div>
           <div class="bottom-area">
-          <a href="#" class="service-btn">Ver mais</a>
+          <a href="#" class="service-btn" data-gallery="locacao">Ver mais</a>
+
           </div>
         </article>
 
@@ -78,10 +78,10 @@
           <div class="service-bg"></div>
           <div class="service-content">
             <h3 id="s2">Reformas</h3>
-            <p>Reforma de sistemas elétricos, Instalação de estação de carregamento veicular, Reparos e instalações elétricas e hidráulicas, Serviços de reparo civil.</p>
+            <p>Reforma de sistemas elétricos, Instalação de estação de carregamento veicular, Reparos e instalações elétricas e hidráulicas, Serviços de reparo civil</p>
           </div>
           <div class="bottom-area">
-          <a href="#" class="service-btn">Ver mais</a>
+          <a href="#" class="service-btn" data-gallery="reforma">Ver mais</a>
           </div>
         </article>
 
@@ -89,11 +89,12 @@
           <div class="service-bg"></div>
           <div class="service-content">
             <h3 id="s4">Venda e Remanufatura</h3>
-            <p>Vendas e remanufatura de mancais e componentes industriais.</p>
+            <p>Vendas e remanufatura de mancais e componentes industriais</p>
           </div>
 
           <div class="bottom-area">
-          <a href="#" class="service-btn">Ver mais</a>
+          <a href="#" class="service-btn" data-gallery="venda">Ver mais</a>
+
           </div>
         </article>
 
@@ -104,7 +105,8 @@
             <p>Serviços elétricos, hidraulicos, civis e instalações em geral</p>
           </div>
           <div class="bottom-area">
-          <a href="#" class="service-btn">Ver mais</a>
+          <a href="#" class="service-btn" data-gallery="reparo">Ver mais</a>
+
           </div>
         </article>
 
@@ -121,7 +123,6 @@
         <div class="contact-card">
           <strong>Telefone</strong>
           <a href="tel:+5541996905020">(41) 99690-5020</a><br/>
-          <a href="tel:+5547996218099">(47) 99621-8099</a>
         </div>
 
         <div class="contact-card">
@@ -135,15 +136,6 @@
         </div>
       </div>
 
-      <!-- MAPA (descomente se quiser mostrar) -->
-      <!--
-      <div class="map-wrap" aria-hidden="false">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!...INSIRA_CODIGO_AQUI..."
-          loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-          title="Localização Obra Fácil"></iframe>
-      </div>
-      -->
     </div>
 
     <div class="contact-right" aria-labelledby="contact-form-title">
@@ -185,6 +177,15 @@
       <p>Contato comercial: <a href="mailto:comercial@of.com">comercial@of.com</a> | CNPJ: 55.189.031/0001-24</p>
     </div>
   </footer>
+
+  <!-- GALERIA MODAL -->
+<div id="gallery-modal" class="gallery-modal" aria-hidden="true">
+  <div class="gallery-content">
+    <button class="gallery-close" id="gallery-close">✕</button>
+    <div class="gallery-grid" id="gallery-grid"></div>
+  </div>
+</div>
+
 
   <script src="scripts.js"></script>
 </body>

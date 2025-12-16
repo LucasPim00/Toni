@@ -253,7 +253,7 @@ html,body{ height:100%; font-family: Inter, Arial, sans-serif; background:var(--
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('imagens/construcao.jpg'); /* coloque o nome da imagem aqui */
+  background-image: url('imagens/chuveiro.jpg'); /* coloque o nome da imagem aqui */
   background-size: cover;
   background-position: center;
   filter: brightness(40%);  /* deixa ~60% escura, equivalente a 60% transparente */
@@ -315,7 +315,7 @@ html,body{ height:100%; font-family: Inter, Arial, sans-serif; background:var(--
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('imagens/reformas.jpg'); /* ajuste o nome da imagem */
+  background-image: url('imagens/eletrico.png'); /* ajuste o nome da imagem */
   background-size: cover;
   background-position: center;
   filter: brightness(40%);
@@ -557,4 +557,70 @@ html,body{ height:100%; font-family: Inter, Arial, sans-serif; background:var(--
 
 .service-btn:hover {
   transform: scale(1.05);
+}
+
+.site-footer a {
+  color: var(--accent);  /* esta cor já é o amarelo */
+  text-decoration: none;  /* remove o sublinhado, se preferir */
+}
+
+.site-footer a:hover {
+  color: #ffd75a;  /* deixa o amarelo mais claro no hover, se preferir */
+}
+
+/* ===== GALERIA MODAL ===== */
+.gallery-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+}
+
+.gallery-modal.active {
+  display: flex;
+}
+
+.gallery-content {
+  background: #2f2f2f;
+  max-width: 1100px;
+  width: 90%;
+  max-height: 90vh;
+  padding: 1.2rem;
+  border-radius: 10px;
+  overflow-y: auto;
+  position: relative;
+}
+
+.gallery-close {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform .2s ease;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.04);
 }

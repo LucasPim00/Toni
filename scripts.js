@@ -222,3 +222,57 @@ Opções de uso:
   });
 
 })();
+
+/* ===== GALERIA DINÂMICA POR SERVIÇO ===== */
+const modal = document.getElementById('gallery-modal');
+const grid = document.getElementById('gallery-grid');
+const closeBtn = document.getElementById('gallery-close');
+
+document.querySelectorAll('.service-btn[data-gallery]').forEach(btn => {
+  btn.addEventListener('click', e => {
+    e.preventDefault();
+    const prefix = btn.dataset.gallery;
+    openGallery(prefix);
+  });
+});
+
+function openGallery(prefix) {
+  grid.innerHTML = '';
+  modal.classList.add('active');
+  modal.setAttribute('aria-hidden', 'false');
+
+  let index = 1;
+  let foundAny = false;
+
+  function loadNext() {
+    const img = new Image();
+    img.src = `imagens/${prefix}${index}.jpg`;
+
+    img.onload = () => {
+      foundAny = true;
+      grid.appendChild(img);
+      index++;
+      loadNext();
+    };
+
+    img.onerror = () => {
+      if (!foundAny) {
+        grid.innerHTML = '<p style="color:#ccc">Nenhuma imagem encontrada.</p>';
+      }
+    };
+  }
+
+  loadNext();
+}
+
+closeBtn.addEventListener('click', closeGallery);
+modal.addEventListener('click', e => {
+  if (e.target === modal) closeGallery();
+});
+
+function closeGallery() {
+  modal.classList.remove('active');
+  modal.setAttribute('aria-hidden', 'true');
+  grid.innerHTML = '';
+}
+
