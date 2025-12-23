@@ -276,3 +276,30 @@ function closeGallery() {
   grid.innerHTML = '';
 }
 
+/* ===== LIGHTBOX AO CLICAR NA IMAGEM ===== */
+const lightbox = document.getElementById('image-lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const lightboxClose = document.getElementById('lightbox-close');
+
+// Delegação: funciona para imagens criadas dinamicamente
+document.addEventListener('click', function (e) {
+  if (e.target.closest('.gallery-grid img')) {
+    lightboxImg.src = e.target.src;
+    lightbox.classList.add('active');
+    lightbox.setAttribute('aria-hidden', 'false');
+  }
+});
+
+// Fechar no X
+lightboxClose.addEventListener('click', closeLightbox);
+
+// Fechar clicando fora da imagem
+lightbox.addEventListener('click', function (e) {
+  if (e.target === lightbox) closeLightbox();
+});
+
+function closeLightbox() {
+  lightbox.classList.remove('active');
+  lightbox.setAttribute('aria-hidden', 'true');
+  lightboxImg.src = '';
+}
