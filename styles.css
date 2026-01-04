@@ -625,7 +625,7 @@ html,body{ height:100%; font-family: Inter, Arial, sans-serif; background:var(--
   transform: scale(1.04);
 }
 
-/* ===== LIGHTBOX DE IMAGEM ===== */
+/* ===== LIGHTBOX DE IMAGEM (PADRONIZADO) ===== */
 .image-lightbox {
   position: fixed;
   inset: 0;
@@ -640,13 +640,19 @@ html,body{ height:100%; font-family: Inter, Arial, sans-serif; background:var(--
   display: flex;
 }
 
+/* CONTAINER PADRÃO */
 .image-lightbox img {
-  max-width: 90%;
-  max-height: 90%;
+  width: 80vw;          /* largura padrão */
+  max-width: 900px;     /* limite máximo */
+  height: 80vh;         /* altura padrão */
+  max-height: 600px;    /* limite máximo */
+  object-fit: contain; /* mantém proporção */
+  background: #000;
   border-radius: 10px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.6);
 }
 
+/* botão fechar */
 .lightbox-close {
   position: absolute;
   top: 20px;
