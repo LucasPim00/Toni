@@ -245,17 +245,21 @@ function openGallery(prefix) {
   let foundAny = false;
 
   function loadNext() {
-    const img = new Image();
-    img.src = `imagens/${prefix}${index}.jpg`;
+    const thumb = new Image();
+    thumb.src = `imagens/${prefix}${index}C.jpg`; // MINIATURA
 
-    img.onload = () => {
+    thumb.onload = () => {
       foundAny = true;
-      grid.appendChild(img);
+
+      // guarda a imagem grande no dataset
+      thumb.dataset.full = `imagens/${prefix}${index}.jpg`;
+
+      grid.appendChild(thumb);
       index++;
       loadNext();
     };
 
-    img.onerror = () => {
+    thumb.onerror = () => {
       if (!foundAny) {
         grid.innerHTML = '<p style="color:#ccc">Nenhuma imagem encontrada.</p>';
       }
@@ -264,6 +268,11 @@ function openGallery(prefix) {
 
   loadNext();
 }
+
+
+
+
+
 
 closeBtn.addEventListener('click', closeGallery);
 modal.addEventListener('click', e => {
@@ -283,12 +292,17 @@ const lightboxClose = document.getElementById('lightbox-close');
 
 // Delegação: funciona para imagens criadas dinamicamente
 document.addEventListener('click', function (e) {
-  if (e.target.closest('.gallery-grid img')) {
-    lightboxImg.src = e.target.src;
-    lightbox.classList.add('active');
-    lightbox.setAttribute('aria-hidden', 'false');
-  }
+  const img = e.target.closest('.gallery-grid img');
+  if (!img) return;
+
+  // usa a imagem grande se existir, senão fallback
+  const fullImage = img.dataset.full || img.src;
+
+  lightboxImg.src = fullImage;
+  lightbox.classList.add('active');
+  lightbox.setAttribute('aria-hidden', 'false');
 });
+
 
 // Fechar no X
 lightboxClose.addEventListener('click', closeLightbox);
